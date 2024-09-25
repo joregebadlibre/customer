@@ -1,8 +1,11 @@
 package com.prueba.customer.repository.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 @Entity
 public class Persona {
     @Id
@@ -21,5 +24,4 @@ public class Persona {
     private String direccion;
     private String telefono;
 
-    // Getters y Setters
 }

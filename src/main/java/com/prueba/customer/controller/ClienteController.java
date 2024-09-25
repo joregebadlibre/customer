@@ -1,24 +1,34 @@
 package com.prueba.customer.controller;
 
-import org.springframework.cloud.stream.function.StreamBridge;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.prueba.customer.repository.entity.Cliente;
+import com.prueba.customer.service.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/clientes")
 public class ClienteController {
-    private final StreamBridge streamBridge;
 
-    public ClienteController(StreamBridge streamBridge) {
-        this.streamBridge = streamBridge;
+    private ClienteService clienteService;
+
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
     }
 
-    @PostMapping("/clientes")
-    public ResponseEntity<Cliente> createCliente(@RequestBody Cliente cliente) {
-        // Lógica para guardar cliente
-        streamBridge.send("output", cliente);
-        return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
+    @PostMapping
+    public Cliente create(@RequestBody Cliente cliente) {
+        return clienteService.save(cliente);
     }
+
+    @PutMapping("/{id}")
+    public Cliente update(@PathVariable Long id, @RequestBody Cliente cliente) {
+        cliente.setClienteId(id);
+        return clienteService.update(cliente);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        clienteService.delete(id);
+    }
+
 }

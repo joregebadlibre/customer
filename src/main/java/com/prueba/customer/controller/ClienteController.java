@@ -2,7 +2,6 @@ package com.prueba.customer.controller;
 
 import com.prueba.customer.repository.entity.Cliente;
 import com.prueba.customer.service.ClienteService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

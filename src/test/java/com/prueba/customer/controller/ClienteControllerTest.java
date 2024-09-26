@@ -68,5 +68,6 @@ class ClienteControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.clienteId").value(1L))
                 .andExpect(jsonPath("$.persona.nombre").value("Juan"));
+
     }
 }

@@ -1,10 +1,15 @@
 package com.prueba.customer.repository.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
 
 @Getter
+@Setter
 @Entity
-public class Persona {
+public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long personaId;
@@ -21,5 +26,4 @@ public class Persona {
     private String direccion;
     private String telefono;
 
-    // Getters y Setters
 }

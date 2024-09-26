@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.prueba'
-version = '0.0.1-SNAPSHOT'
+version = ''
 
 java {
 	toolchain {
@@ -21,8 +21,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly 'org.postgresql:postgresql'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit:4.0.4'
 
+	implementation 'org.postgresql:postgresql:42.2.24'
+
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
 	implementation 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
 

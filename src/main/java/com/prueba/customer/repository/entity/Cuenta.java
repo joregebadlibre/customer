@@ -23,4 +23,8 @@ public class Cuenta implements Serializable {
     private BigDecimal saldoInicial;
     private BigDecimal saldoActual;
     private String estado;
+
+
+    @Transient
+    CustomError error;
 }

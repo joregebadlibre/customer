@@ -26,4 +26,7 @@ public class Persona implements Serializable {
     private String direccion;
     private String telefono;
 
+    @Transient
+    CustomError error;
+
 }

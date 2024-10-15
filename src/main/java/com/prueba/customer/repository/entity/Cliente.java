@@ -23,4 +23,7 @@ public class Cliente implements Serializable {
 
     private Boolean estado;
 
+    @Transient
+    CustomError error;
+
 }

@@ -14,5 +14,4 @@ public interface ClienteService {
 
     List<Cliente> findAll();
     Optional<Cliente> findById(Long id) throws ClienteException;
-
 }
